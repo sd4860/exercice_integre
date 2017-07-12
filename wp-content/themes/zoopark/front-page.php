@@ -12,27 +12,26 @@
        <div class="parallax"> <?php if($image = get_field("parallax1_fld")):?><img src="<?php echo $image['url'];?>" alt="<?php echo $image['alt'];?>"/><?php endif;?></div>
     </div>
     <div class="container">
-        <div class="section">
+        <div href="#horaires" class="section">
             <div class="row">
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center brown-text"><i class="fi flaticon-animals">Ours</i></h2>
-                        <h3 class="center">L'Ours noir<em>- Amérique du Nord</em></h3>
-                        <p class="light">Le continent nord-américain abrite une faune et une zone boisée incroyable</p>
+                <?php 
+                  $args = array(
+                    'post_type'      =>  'animaux',
+                    'posts_per_page' =>  4
+                  );
+                  $requete = new WP_Query($args); ?>
+                  <?php if($requete->have_posts()):
+                  while($requete->have_posts()): $requete->the_post(); ?>
+
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center brown-text"><i class="fi flaticon-animal-<?php the_field('animal_icone');?>"></i></h2>
+                            <h3 class="center"><?php the_title(); ?><em>- <?php the_field('region_de_lanimal_fld'); ?></em></h3>
+                            <p class="light"><?php the_field('text_introductif_fld'); ?></p>
+                        </div>
                     </div>
-                </div>
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center brown-text"><i class="fi flaticon-animal-1">Quetzal</i></h2>
-                        <h3 class="center">Splendides Quetzals <em>-Amérique du Sud</em></h3>
-                        <p class="light">Visitez notre immense volière exotique d'oiseaux et de plantes d'Amérique du sud</p>
-                    </div>
-                </div>
-                <div class="col s12 m4">
-                    <div class="icon-block">
-                        <h2 class="center brown-text"><i class="fi flaticon-animal-3">Girafons</i></h2>
-                        <h3 class="center">Jeunes Girafons <em>- Savane africaine</em></h3>
-                        <p class="light">Découvrez la richesse de la plaine Africaine et la beauté de ses habitants</p>
+                <?php endwhile; endif; ?>
+                <?php wp_reset_query(); ?>
                     </div>
                 </div>
             </div>
@@ -41,12 +40,25 @@
     <div class="call orange lighten-1">
         <div class="container">
             <div class="section">
+
+
                 <div class="row">
                     <div class="col s12 center">
-                        <p>Achetez votre ZOOPASS et accéder à notre Parc toute l'année !</p><a href="#" id="download-button" class="call-btn btn-large waves-effect waves-light brown lighten-1">ZooPass<strong>1 jour</strong><span>28€*</span></a> <a href="#" id="download-button" class="call-btn btn-large waves-effect waves-light brown lighten-1">ZooPass<strong>1 an</strong> <span>45€*</span></a>
-                        <p>*<small>Pass individuel</small></p>
+                  <?php    
+                    $args = array(
+                        'post_type'      =>  'billeterie',
+                        'posts_per_page' =>  4
+                    );
+                    $requete = new WP_Query($args); ?>
+                    <?php if($requete->have_posts()):
+                    while($requete->have_posts()): $requete->the_post(); ?>
+                        <p><?php the_field('titre-billeterie_fld'); ?></p><a href="#" id="download-button" class="call-btn btn-large waves-effect waves-light brown lighten-1">ZooPass<strong><?php the_field('duree1_fld'); ?></strong><span><?php the_field('prix1_fld'); ?>€*</span></a><a href="#" id="download-button" class="call-btn btn-large waves-effect waves-light brown lighten-1">ZooPass<strong><?php the_field('duree2_fld'); ?></strong> <span><?php the_field('prix2_fld'); ?>€*</span></a>
+                        <p>*<small><?php the_field('condition_fld'); ?></small></p>
+
+                        <?php endwhile; endif;wp_reset_query(); ?>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -60,36 +72,45 @@
        <div class="parallax"><?php if($image = get_field("parallax2_fld")):?><img src="<?php echo $image['url'];?>" alt="<?php echo $image['alt'];?>"/><?php endif;?></div>
     </div>
     <div class="opening container">
-        <div class="section">
+        <div id="horaires" class="section">
+           <?php 
+                $args = array(
+                'post_type'      =>  'horaire',
+                'posts_per_page' =>  4,
+            );
+            $requete = new WP_Query($args); ?>
             <div class="row">
                 <div class="col s12 center">
                     <h3 class="orange-text">Horaires</h3>
                     <h4>Jours d'ouverture et heures d'ouverture</h4>
                     <ul class="tabs">
-                        <li class="tab col s3"><a href="#spring">Printemps</a> 3 mars au 20 juin</li>
-                        <li class="tab col s3"><a class="active" href="#summer">Été</a> 21 juin au 15 septembre</li>
-                        <li class="tab col s3"><a href="#winter">Hiver</a> 16 septembre au 4 janvier</li>
+                        <?php if($requete->have_posts()):
+                        while($requete->have_posts()): $requete->the_post(); ?>
+                            <li class="tab col s3"><a href="#onglet_<?php the_ID(); ?>"><?php the_title(); ?></a></li>
+                        <?php endwhile; endif; ?>
                     </ul>
                 </div>
-                <div id="spring" class="col s12">
-                    <?php ?>
-                </div>
-                <div id="summer" class="col s12">
-                    <?php ?>
-                </div>
-                <div id="winter" class="col s12">
-                    <?php ?>
-                </div>
+                
+                <?php if($requete->have_posts()):
+                while($requete->have_posts()): $requete->the_post(); ?>
+                    <div id="onglet_<?php the_ID(); // the_ID = un chiffre et un id ne peut pas commencer par un chiffre donc je met devant "onglet_"?>" class="col s12"> 
+                        <?php the_content();// the_content(); insère lui m^me les balises <p> donc je les enlèves ?>
+                    </div>
+                <?php endwhile; endif;  wp_reset_query(); // sors de cette requete pour que ce qu'il y a en dessous puisse se basé sur la requete principal ?>
             </div>
         </div>
     </div>
+    
     <div class="parallax-container valign-wrapper">
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h3 class="header col s12 light"><?php the_field('parallax3-text_fld');?></h3></div>
+                    <h3 class="header col s12 light"><?php the_field('parallax3-text_fld');?></h3>
+                </div>
             </div>
         </div>
-       <div class="parallax"><?php if($image = get_field("parallax3_fld")):?><img src="<?php echo $image['url'];?>" alt="<?php echo $image['alt'];?>"/><?php endif;?></div>
+       <div class="parallax">
+           <?php if($image = get_field("parallax3_fld")):?><img src="<?php echo $image['url'];?>" alt="<?php echo $image['alt'];?>"/><?php endif;?>
+       </div>
     </div>
 <?php get_footer(); ?>

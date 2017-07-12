@@ -6,9 +6,14 @@
                     <ul class="footer-links">
                             <?php 
                                 $args = array(
-                                'post_type'      =>  'post',
-                                "category_name" => "spectacles",
-                                'posts_per_page' =>  9,
+                                'post_type'      =>  'animations',
+                                "tax_query"  => array(
+                                    array(
+                                        "taxonomy" => "type_animations",
+                                        "terms" => "spectacles",
+                                        "field" => "slug"
+                                    )),
+                                'posts_per_page' =>  9
                             );
                             $requete = new WP_Query($args);
                             if($requete->have_posts()):
@@ -21,23 +26,28 @@
                 </div>
                 <div class="col l3 m6 s12">
                     <h3 class="white-text">Activités</h3>
-                    <ul class="footer-links">             
+                     <ul class="footer-links">
                             <?php 
                                 $args = array(
-                                'post_type'      =>  'post',
-                                "category_name" => "activites",
-                                'posts_per_page' =>  9, // "order" => "DESC" = x premiers | ASC = x derniers
+                                'post_type'      =>  'animations',
+                                "tax_query"  => array( // array pour ma taxonomie et mes types car -> plusieurs types
+                                    array(
+                                        "taxonomy" => "type_animations",
+                                        "terms" => "activites",
+                                        "field" => "slug"
+                                    )),
+                                'posts_per_page' =>  9
                             );
                             $requete = new WP_Query($args);
                             if($requete->have_posts()):
                                 while($requete->have_posts()): $requete->the_post(); ?>
                                     <li><a href="<?php  the_permalink(); ?>"><?php the_title(); ?></a></li>
                             <?php endwhile; endif; 
-                            wp_reset_postdata();?>
+                            wp_reset_postdata();?> 
                         </li>
                     </ul>
                 </div>
-                <div class="gmap col l6 m12 s12"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.3975145563036!2d4.466528315960438!3d50.4709429794782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c22920c155cb77%3A0x122916fe7183d084!2sCentre+de+comp%C3%A9tence+Forem+Cepegra!5e0!3m2!1sfr!2sbe!4v1499776981097" width="442" height="222" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+                <div class="gmap col l6 m12 s12"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.3975145563036!2d4.466528315960438!3d50.4709429794782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c22920c155cb77%3A0x122916fe7183d084!2sCentre+de+comp%C3%A9tence+Forem+Cepegra!5e0!3m2!1sfr!2sbe!4v1499776981097" width="442" height="222" frameborder="0" style="border:0" allowfullscreen></iframe></div>
             </div>
         </div>
         <div class="section white">

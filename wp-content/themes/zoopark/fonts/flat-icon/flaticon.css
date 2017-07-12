@@ -31,12 +31,15 @@ margin-left: 20px;
 
 .flaticon-animal:before { content: "\f100"; }
 .flaticon-animal-1:before { content: "\f101"; }
+.flaticon-animal-quetzal:before { content: "\f101"; }
 .flaticon-animal-2:before { content: "\f102"; }
 .flaticon-animal-3:before { content: "\f103"; }
+.flaticon-animal-giraphon:before { content: "\f103"; }
 .flaticon-animal-4:before { content: "\f104"; }
 .flaticon-animal-5:before { content: "\f105"; }
 .flaticon-animal-6:before { content: "\f106"; }
 .flaticon-animals:before { content: "\f107"; }
+.flaticon-animal-ours:before { content: "\f107"; }
 .flaticon-animals-1:before { content: "\f108"; }
 .flaticon-animals-10:before { content: "\f109"; }
 .flaticon-animals-11:before { content: "\f10a"; }

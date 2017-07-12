@@ -100,9 +100,9 @@
         </div>
 
         <img src="<?php the_field('parallax1_fld');?>"/>
-        <div class="parallax"><img src="<?php bloginfo("template_url");?>/content/images/background3.jpg" alt="Unsplashed background img 3"></div>
-    
-    
+        <div class="parallax">
+            <img src="<?php bloginfo("template_url");?>/content/images/background3.jpg" alt="Unsplashed background img 3">
+        </div>
     </div>
 
 <?php get_footer(); ?>
