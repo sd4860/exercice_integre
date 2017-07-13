@@ -47,7 +47,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="gmap col l6 m12 s12"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.3975145563036!2d4.466528315960438!3d50.4709429794782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c22920c155cb77%3A0x122916fe7183d084!2sCentre+de+comp%C3%A9tence+Forem+Cepegra!5e0!3m2!1sfr!2sbe!4v1499776981097" width="442" height="222" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+                <div class="gmap col l6 m12 s12"><?php echo do_shortcode('[google_maps id="317"]'); ?></div>
             </div>
         </div>
         <div class="section white">
@@ -76,6 +76,19 @@
     <script src="<?php bloginfo("template_url");?>/js/materialize.js"></script>
     <script src="<?php bloginfo("template_url");?>/js/init.js"></script>
     <?php wp_footer(); ?>
-</body>
 
+    <!--  Scripts contact -->
+    <script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('select').material_select();
+        });
+    </script>
+
+</body>
 </html>

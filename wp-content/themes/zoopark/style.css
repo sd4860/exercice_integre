@@ -5,11 +5,18 @@ Author: Sarah
 
 */
 
+/* index */
 .flaticon-animal-quetzal:before { content: "\f101"; }
 .flaticon-animal-ours:before { content: "\f107"; }
 .flaticon-animal-giraphon:before { content: "\f103"; }
+
 
 /* ou suis-je */
 body > main > section > div > p > img{ width: 80%; height: 80%; }
 body > main > section > div > p{ text-align: center; }
 
+
+/* les animaux */
+body > main > section > div{width: 95%; margin: auto; padding: 20px;}
+body > main > section > div{padding: 0;}
+body > main > section{padding: 40px;}

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<!-- INDEX -->
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="slogan container">

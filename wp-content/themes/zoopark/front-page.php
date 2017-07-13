@@ -22,12 +22,13 @@
                   $requete = new WP_Query($args); ?>
                   <?php if($requete->have_posts()):
                   while($requete->have_posts()): $requete->the_post(); ?>
-
                     <div class="col s12 m4">
                         <div class="icon-block">
-                            <h2 class="center brown-text"><i class="fi flaticon-animal-<?php the_field('animal_icone');?>"></i></h2>
-                            <h3 class="center"><?php the_title(); ?><em>- <?php the_field('region_de_lanimal_fld'); ?></em></h3>
-                            <p class="light"><?php the_field('text_introductif_fld'); ?></p>
+                            <a href="<?php the_permalink(); ?>">
+                                <h2 class="center brown-text"><i class="fi flaticon-animal-<?php the_field('icon-page-animal_fld');?>"></i></h2>
+                                <h3 class="center"><?php the_title(); ?><em>- <?php the_field('region_de_lanimal_fld'); ?></em></h3>
+                                <p class="light"><?php the_field('text_introductif_fld'); ?></p>
+                            </a>
                         </div>
                     </div>
                 <?php endwhile; endif; ?>
@@ -40,15 +41,13 @@
     <div class="call orange lighten-1">
         <div class="container">
             <div class="section">
-
-
                 <div class="row">
                     <div class="col s12 center">
-                  <?php    
-                    $args = array(
-                        'post_type'      =>  'billeterie',
-                        'posts_per_page' =>  4
-                    );
+                    <?php    
+                        $args = array(
+                            'post_type'      =>  'billeterie',
+                            'posts_per_page' =>  4
+                        );
                     $requete = new WP_Query($args); ?>
                     <?php if($requete->have_posts()):
                     while($requete->have_posts()): $requete->the_post(); ?>
@@ -57,8 +56,7 @@
 
                         <?php endwhile; endif;wp_reset_query(); ?>
                     </div>
-                </div>
-                
+                </div>  
             </div>
         </div>
     </div>
