@@ -6,17 +6,19 @@ Author: Sarah
 */
 
 /* index */
-.flaticon-animal-quetzal:before { content: "\f101"; }
+.flaticon-animal-quetzal:before { content: "\f101"; }/* voir dans le cpt Animaux */
 .flaticon-animal-ours:before { content: "\f107"; }
-.flaticon-animal-giraphon:before { content: "\f103"; }
-
+.flaticon-animal-girafon:before { content: "\f103"; }
+a{ color: black; }
 
 /* ou suis-je */
 body > main > section > div > p > img{ width: 80%; height: 80%; }
 body > main > section > div > p{ text-align: center; }
 
-
 /* les animaux */
-body > main > section > div{width: 95%; margin: auto; padding: 20px;}
-body > main > section > div{padding: 0;}
+body > main > section > div{width: 95%; margin: auto; padding: 5px; }
+body > main > section > div > p{text-align: center;}
 body > main > section{padding: 40px;}
+body > main > section:nth-child(2){display: flex; justify-content: center;}
+body > main > section:nth-child(2) > div{text-align: center; width: 50%;}
+body > main > section:nth-child(1){padding: 20px;}

@@ -21,7 +21,7 @@
                   );
                   $requete = new WP_Query($args); ?>
                   <?php if($requete->have_posts()):
-                  while($requete->have_posts()): $requete->the_post(); ?>
+                  while($requete->have_posts()): $requete->the_post(); // requete si on va chercher un element complementaire à mon permalink ?> 
                     <div class="col s12 m4">
                         <div class="icon-block">
                             <a href="<?php the_permalink(); ?>">
