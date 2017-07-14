@@ -90,8 +90,17 @@
         });
     </script>
     <Script>  
-        $('test5').on(click, function{
-
+    // checkbox tel formulaire
+        $('#test5').click(function() {
+            if($(this).is(":checked")) {
+                $('#icon_telephone').removeAttr('disabled value');
+                $('#icon_telephone').attr('required','required');
+            }
+            else {
+                $('#icon_telephone').attr('disabled','disabled');
+                $('#icon_telephone').attr('value','Not editable');
+                $('#icon_telephone').removeAttr('required');
+            }
         });
     </Script>
 </body>
