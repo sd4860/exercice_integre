@@ -104,17 +104,38 @@
         });
     </Script>
     <Script>
-    $("document").ready(function($){
-    var nav = $('.nav-princip');
+        $("document").ready(function($){
+        var nav = $('.nav-princip');
 
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 125) {
-            nav.addClass("f-nav");
-        } else {
-            nav.removeClass("f-nav");
-        }
-    });
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 125) {
+                nav.addClass("f-nav");
+            } else {
+                nav.removeClass("f-nav");
+            }
+        });
     });
     </Script>
+
+    <!-- Geolocalisation -->
+    <script src="jmobile.js"></script>
+    <script src="geolocalisation.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwvT-r8421Vi4TL5epbwUfmfOAE1uig2k&callback=Main">
+    </script>
+        <script>
+        function Main() {
+            var gosselies = {lat: 50.4709058, lng: 4.4687986}; // il faut autorisé sur le navigateur
+            var map = new google.maps.Map(document.querySelector('#map'),{ //affiche la carte
+                zoom: 15,
+                center: gosselies
+            });
+            var marker = new google.maps.Marker({ // "marker" = le cigle sur la carte
+                position: gosselies,
+                map: map,
+                label: "Cepegra - Forem",
+                title: "C'est ouvert !"
+            });
+        }
+    </script>
 </body>
 </html>

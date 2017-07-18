@@ -30,15 +30,18 @@ body > footer > div.container > div > div.gmap.col.l6.m12.s12 > div{ height: 100
 /* la billeterie */
 body > div.col.s12.center > p:nth-child(1){margin-top: 100px;}
 body > hr{width: 70%; }
+body > div:nth-child(5) > div > div > p > strong,
+body > div:nth-child(6) > div > div > p > strong{font-size: 1.3em; vertical-align: middle;}
+body > div:nth-child(5) > div > div > p > strong > span{font-size: 1.3em;}
 .tarif{margin-top: 100px;}
-.tarif > p{text-align: center; font-size: 2.5em; font-weight: lighter; color: #555555; text-transform: uppercase; border: 2px solid #a1887f; border-top-left-radius: 20px 20px; border-bottom-right-radius: 20px 20px;  width: 20%; margin: auto; padding: 15px; line-height: 50px;}
+.tarif > p{text-align: center; font-size: 2.5em; font-weight: normal; color: #555555; text-transform: uppercase; border: 2px solid #a1887f; border-top-left-radius: 20px 20px; border-bottom-right-radius: 20px 20px;  width: 70%; margin: auto; padding: 15px; line-height: 50px;}
 .tarif > p span{font-size: 1.5em; color: #ffa500; font-weight: normal;}
 .jour{ display: flex; text-align: center; justify-content: space-around; margin-top: 50px; margin-bottom: 50px; }
-.age{ width: 20%; border: 1.5px dotted #555555; background: white;}
-.age p{ background: #ffa500; height: 70px; color: #555555; text-transform: uppercase; letter-spacing: 1px; line-height: 20px; padding: 10px; margin-top: 0;}
+.age{ width: 20%; margin:2%;  border: 1.5px dotted #555555; background: white; box-shadow: 2px 2px 10px;  color: rgba(0, 0,0, 0.3);}
+.age p{ background: #ffa500; height: 70px; text-transform: uppercase; letter-spacing: 1px; line-height: 20px; padding: 10px; margin-top: 0;}
 .age span{color: #a1887f; font-size: 3em; font-weight: bold; }
-.age ul{color: #555555; font-weight: lighter; line-height: 30px; vertical-align: bottom; padding: 10px;}
+.age ul{color: #555555; font-weight: normal; line-height: 30px; vertical-align: bottom; padding: 10px;}
 /* fixe le menu au scroll */
 .f-nav{ z-index: 9999; position: fixed; left: 0; top: 0; width: 100%; }
 body > div:nth-child(6) > div{justify-content: center; }
-body > div:nth-child(6) > div > div{margin: 0 3%;}
+body > main > section:nth-child(1) > div > p > img{width: 60%;}

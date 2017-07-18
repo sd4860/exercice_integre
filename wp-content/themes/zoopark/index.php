@@ -5,7 +5,7 @@
             <div class="slogan container">
                 <div class="row center">
                     <h2 class="header col s12 light">Un parc entièrement dédié à la découverte et la protection des espèces</h2></div>
-                <div class="row center"><a href="#" id="download-button" class="btn-large waves-effect waves-light brown lighten-1">Billeterie</a></div>
+                <div class="row center"><a href="index.php" id="download-button" class="btn-large waves-effect waves-light brown lighten-1">Billeterie</a></div>
             </div>
         </div>
 

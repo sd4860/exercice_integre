@@ -6,7 +6,7 @@
             <div class="slogan container">
                 <div class="row center">
                     <h2 class="header col s12 light"><?php the_field('parallax1-text_fld'); ?></h2></div>
-                <div class="row center"><a href="<?php the_permalink(); ?>" id="download-button" class="btn-large waves-effect waves-light brown lighten-1"><?php the_field('lien1_fld'); ?></a></div>
+                <div class="row center"><a href="http://localhost:8888/ei/cms/billeterie/achetez-votre-zoopass-et-acceder-a-notre-parc-toute-lannee/" id="download-button" class="btn-large waves-effect waves-light brown lighten-1"><?php the_field('lien1_fld'); ?></a></div>
             </div>
         </div>
        <div class="parallax"> <?php if($image = get_field("parallax1_fld")):?><img src="<?php echo $image['url'];?>" alt="<?php echo $image['alt'];?>"/><?php endif;?></div>
@@ -46,12 +46,24 @@
                     <?php    
                         $args = array(
                             'post_type'      =>  'billeterie',
-                            'posts_per_page' =>  4
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'types_billets',
+                                    'field'    => 'slug',
+                                    'terms'    => 'accueil',
+                                )
+                            )
                         );
-                    $requete = new WP_Query($args); ?>
-                    <?php if($requete->have_posts()):
-                    while($requete->have_posts()): $requete->the_post(); ?>
-                        <p><?php the_field('titre-billeterie_fld'); ?></p><a href="<?php the_permalink(); ?>" id="download-button" class="call-btn btn-large waves-effect waves-light brown lighten-1">ZooPass<strong><?php the_field('duree1_fld'); ?></strong><span><?php the_field('prix1_fld'); ?>€*</span></a><a href="<?php the_permalink(); ?>" id="download-button" class="call-btn btn-large waves-effect waves-light brown lighten-1">ZooPass<strong><?php the_field('duree2_fld'); ?></strong> <span><?php the_field('prix2_fld'); ?>€*</span></a>
+
+                        $requete = new WP_Query($args); ?>
+                        <?php if($requete->have_posts()):
+                        while($requete->have_posts()): $requete->the_post(); ?>
+                        <p><?php the_field('titre-billeterie_fld'); ?></p>
+                        
+                        <a href="<?php the_permalink(); ?>" id="download-button" class="call-btn btn-large waves-effect waves-light brown lighten-1">ZooPass<strong><?php the_field('duree1_fld'); ?></strong><span><?php the_field('prix1_fld'); ?>€*</span></a>
+                        
+                        <a href="<?php the_permalink(); ?>" id="download-button" class="call-btn btn-large waves-effect waves-light brown lighten-1">ZooPass<strong><?php the_field('duree2_fld'); ?></strong> <span><?php the_field('prix2_fld'); ?>€*</span></a>
+
                         <p>*<small><?php the_field('condition_fld'); ?></small></p>
 
                         <?php endwhile; endif;wp_reset_query(); ?>
